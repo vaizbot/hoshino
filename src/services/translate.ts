@@ -27,7 +27,8 @@ export async function requestTranslate(
 ): Promise<TranslateResult> {
   const response = await fetch(`${API_BASE}/translate`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    // text/plain 简单请求：避免 OPTIONS 预检（Supabase 平台预检返回 500 会阻断请求）
+    headers: { 'Content-Type': 'text/plain' },
     body: JSON.stringify({ articleId, targetLang })
   })
 

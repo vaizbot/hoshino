@@ -35,7 +35,9 @@ export async function requestTTS(
 ): Promise<TtsResult> {
   const response = await fetch(`${API_BASE}/tts`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    // 用 text/plain 让请求成为「简单请求」：浏览器不发 OPTIONS 预检
+    // （Supabase 平台对 OPTIONS 预检返回 500，预检失败会导致 Failed to fetch；后端不校验 content-type，照常解析 JSON）
+    headers: { 'Content-Type': 'text/plain' },
     body: JSON.stringify({
       articleId,
       text,
