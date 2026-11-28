@@ -1,8 +1,8 @@
-# 👋 你好，这里是 VaizBot
+# 👋 你好，这里是 Hoshino
 
-我的个人网站：记录日常、收集故事、写点东西。
+我的个人网站：记录日常、收集故事、写点东西。白天写代码，晚上写小说，声音是我的执念——全站文章都能用「我的声音」读给你听。
 
-🌐 网站：**https://vaizbot.github.io/vaizbot/**
+🌐 网站：**https://vaizbot.github.io/hoshino/**
 
 ## ✨ 特色
 
@@ -20,3 +20,4 @@ Vue 3 · TypeScript · Tailwind CSS · Supabase（数据库 / Storage / Edge Fun
 
 - 哔哩哔哩：[@VaizBot](https://space.bilibili.com/27744648)
 - GitHub：[vaizbot](https://github.com/vaizbot)
+
