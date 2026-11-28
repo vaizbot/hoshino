@@ -1,0 +1,10 @@
+# 依赖与构建产物
+node_modules/
+dist/
+
+# wrangler 本地状态（含本地开发用的 secret：.dev.vars）
+.wrangler/
+.dev.vars
+
+# 日志
+*.log

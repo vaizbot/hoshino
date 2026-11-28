@@ -1,0 +1,21 @@
+{
+  "name": "vaizbot-worker",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "VaizBot 定时取源抓取 Worker：每天预抓一篇 RSS 文章入库（草稿），并自动发布一篇草稿",
+  "scripts": {
+    "dev": "wrangler dev --test-scheduled",
+    "deploy": "wrangler deploy",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261123.1",
+    "typescript": "~5.6.3",
+    "wrangler": "4.168.0"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true,
+    "workerd@1.20261123.1": true
+  }
+}

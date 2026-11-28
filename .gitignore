@@ -1,0 +1,29 @@
+# 依赖
+node_modules/
+
+# 构建产物
+dist/
+
+# 本地环境文件（.env.local 等，含密钥，禁止提交）
+*.local
+.env
+.env.*
+
+# 编辑器
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 日志
+*.log
+npm-debug.log*
+
+# 生产构建公开配置（含公开的 Supabase 地址与 anon key，允许提交）
+!.env.production
+
+# Supabase CLI 本地临时文件
+supabase/.temp/

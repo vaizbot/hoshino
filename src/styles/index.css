@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   语义色令牌（明暗双态）：由 .dark 类切换，页面用 text-ink /
+   border-line / bg-surface 等类名，自动跟随主题
+   ============================================================ */
+:root {
+  --c-ink: 24 25 28;
+  --c-ink-2: 97 102 109;
+  --c-ink-3: 148 153 160;
+  --c-line: 229 232 237;
+  --c-surface: 255 255 255;
+  --c-surface-2: 243 246 250;
+  --page-grad:
+    radial-gradient(1100px 520px at 50% -10%, rgba(251, 114, 153, 0.16), transparent 70%),
+    radial-gradient(900px 480px at 88% 26%, rgba(0, 174, 236, 0.14), transparent 70%),
+    linear-gradient(180deg, #eef4fb, #f7f9fb 45%, #fdf1f5);
+}
+
+.dark {
+  --c-ink: 230 234 242;
+  --c-ink-2: 154 166 184;
+  --c-ink-3: 102 113 138;
+  --c-line: 42 50 70;
+  --c-surface: 22 28 43;
+  --c-surface-2: 29 36 54;
+  --page-grad:
+    radial-gradient(1100px 520px at 50% -10%, rgba(251, 114, 153, 0.1), transparent 70%),
+    radial-gradient(900px 480px at 88% 26%, rgba(0, 174, 236, 0.08), transparent 70%),
+    linear-gradient(180deg, #101624, #141b2c 45%, #11182a);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-ink antialiased;
+    background: var(--page-grad);
+    background-attachment: fixed;
+    font-family:
+      'PingFang SC',
+      'Hiragino Sans GB',
+      'Microsoft YaHei',
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      Roboto,
+      Arial,
+      sans-serif;
+  }
+}
+
+@layer components {
+  /* 顶栏玻璃：毛玻璃底 + 下描边 */
+  .glass {
+    @apply border-b border-line bg-surface/75 backdrop-blur-xl;
+  }
+
+  /* 毛玻璃卡片体系（旧站质感）：面板/弹窗/阅读卡统一使用 */
+  .glass-card {
+    @apply rounded-2xl border border-white/60 bg-white/40 shadow-[0_10px_40px_rgba(0,90,150,0.08)] backdrop-blur-md dark:border-line dark:bg-slate-900/45;
+  }
+
+  .glass-inner {
+    @apply rounded-xl border border-white/60 bg-white/50 dark:border-line dark:bg-slate-800/55;
+  }
+
+  .glass-input {
+    @apply h-9 w-full rounded-lg border border-transparent bg-white/50 px-3 text-sm text-ink outline-none transition-colors placeholder:text-ink-3 focus:border-bili-pink dark:bg-slate-800/70;
+  }
+
+  /* 图标按钮（36px 圆角方，导航/工具栏统一） */
+  .a-icon-btn {
+    @apply inline-flex h-9 w-9 items-center justify-center rounded-[10px] text-ink-2 transition-colors duration-150 hover:bg-bili-pink/10 hover:text-bili-pink dark:hover:bg-bili-pink/10;
+  }
+}
+
+/* 行截断（标题/简介固定高） */
+.clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 细滚动条（B 站风格） */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-gray-300;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
